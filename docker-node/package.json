@@ -1,0 +1,31 @@
+{
+  "name": "actyxos-sample-docker",
+  "version": "1.0.0",
+  "description": "A simple app sending pings and displaying them",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Actyx/actyxos-sample-apps"
+  },
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actyx/pond": "^1.0",
+    "fp-ts": "^1.19.4",
+    "io-ts": "^1.10.1",
+    "io-ts-types": "^0.4.1",
+    "monocle-ts": "^2.1.0",
+    "rxjs": "^5.5.12",
+    "ws": "^7.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  }
+}
