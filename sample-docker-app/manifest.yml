@@ -1,0 +1,8 @@
+manifestVersion: "1.0"
+type: docker
+id: com.actyx.sample-docker-app
+version: 1.0.0
+displayName: Sample Docker App
+description: "A sample docker app"
+dockerCompose: ./docker-compose.yml
+settingsSchema: ./settings.schema.json

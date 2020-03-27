@@ -1,16 +1,17 @@
 {
-  "name": "actyxos-sample-docker",
+  "name": "sample-docker-app",
   "version": "1.0.0",
-  "description": "A simple app sending pings and displaying them",
+  "description": "A sample ActyxOS docker app that sends pings and displays them",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Actyx/actyxos-sample-apps"
+    "url": "https://github.com/Actyx/quickstart"
   },
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
     "start": "ts-node index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:image": "docker build -t sample-docker-app ."
   },
   "author": "",
   "license": "ISC",

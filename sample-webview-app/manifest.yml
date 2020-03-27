@@ -1,0 +1,10 @@
+manifestVersion: "1.0"
+type: web
+id: com.actyx.sample-webview-app
+version: 1.0.0
+displayName: Sample Webview App
+description: "A sample webview app"
+icon: ./assets/icon.png
+dist: ./dist/
+main: index.html
+settingsSchema: ./settings-schema.json
