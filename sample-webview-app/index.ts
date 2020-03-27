@@ -28,7 +28,6 @@ const myFish: FishTypeImpl<State, string, string, State> = FishTypeImpl.of({
 (async () => {
     // get started with a Pond
     const pond = await Pond.default()
-    console.log('XXX');
     // figure out the name of the fish we want to wake up
     const myName = process.argv[2] || pond.info().sourceId
     // wake up fish of kind myFish with name myName and log its published states
