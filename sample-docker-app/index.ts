@@ -27,6 +27,11 @@ const myFish: FishTypeImpl<State, string, string, State> = FishTypeImpl.of({
 
 (global as any).WebSocket = require('ws');
 (async () => {
+    // TODO: we should add some error handling here which recognizes if the Pond
+    // can't establish the WS connection to ActyxOS. This happens for example if
+    // you run this code locally without a local ActyxOS node in dev mode. It would
+    // we great to catch this and show a nice error (e.g. 'Are you sure ActyxOS is
+    // running?')
     // get started with a Pond
     const pond = await Pond.default()
     // figure out the name of the fish we want to wake up
