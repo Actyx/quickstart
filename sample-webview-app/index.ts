@@ -30,7 +30,7 @@ const ForgetfulChatFish: FishTypeImpl<State, string, string, State> = FishTypeIm
 (async () => {
     // get started with a Pond
     const pond = await Pond.default()
-    // figure out the name of the fish we want to wake up from the environment
+    // figure out the name of the fish we want to wake up
     const myName = process.argv[2] || pond.info().sourceId
     // wake up fish of kind ForgetfulChatFish with name myName and log its published states
     const list = document.getElementById('list')
