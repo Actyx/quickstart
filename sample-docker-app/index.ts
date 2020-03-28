@@ -1,43 +1,45 @@
 import { Pond, Semantics, OnStateChange, Subscription, FishTypeImpl } from '@actyx/pond'
+import { mkMultiplexer } from '@actyx/pond/lib/eventstore/utils'
 
-type State = {
-    time: string,
-    name: string,
-    msg: string,
-} | undefined
+// Each fish keeps some local state it remembers from all the events it has seen
+type State = { time: string, name: string, msg: string, } | undefined
 
-const myFish: FishTypeImpl<State, string, string, State> = FishTypeImpl.of({
-    // each kind of fish needs an identifier: its semantics
-    semantics: Semantics.of('myFish'),
+const ForgetfulChatFish: FishTypeImpl<State, string, string, State> = FishTypeImpl.of({
+    // The kind of fish is identified by the meaning of its event stream, the semantics
+    semantics: Semantics.of('ForgetfulChatFish'),
+
+    // When the fish first wakes up, it computes its initial state and event subscriptions
     initialState: (_name, _sourceId) => ({
         state: undefined, // start without information about previous event
-        subscriptions: [Subscription.of(myFish)] // subscribe across all names & sources
+        subscriptions: [Subscription.of(ForgetfulChatFish)] // subscribe across all names
     }),
-    // keep some details of the most recent event in the state
+
+    // Upon each new event, keep some details of that event in the state
     onEvent: (_state, event) => ({
         time: new Date(event.timestamp / 1000).toISOString(),
         name: event.source.name,
         msg: event.payload
     }),
-    // show the state computed above to the outside world (see Pond.observe below)
+
+    // Show the state computed above to the outside world (see Pond.observe below)
     onStateChange: OnStateChange.publishPrivateState(),
-    // generate one event straight from each message sent to this fish
+
+    // Upon each received command message generate one event
     onCommand: (_state, msg) => [msg],
 });
 
 (global as any).WebSocket = require('ws');
 (async () => {
-    // TODO: we should add some error handling here which recognizes if the Pond
-    // can't establish the WS connection to ActyxOS. This happens for example if
-    // you run this code locally without a local ActyxOS node in dev mode. It would
-    // we great to catch this and show a nice error (e.g. 'Are you sure ActyxOS is
-    // running?')
     // get started with a Pond
-    const pond = await Pond.default()
+    const ws = mkMultiplexer({ url: 'ws://10.1.58.20:4243/store_api' })
+    const pond = await Pond.of(ws).catch(ex => {
+        console.log('cannot start Pond, is ActyxOS running in development mode on this computer?', ex)
+        process.exit(1)
+    })
     // figure out the name of the fish we want to wake up
     const myName = process.argv[2] || pond.info().sourceId
-    // wake up fish of kind myFish with name myName and log its published states
-    pond.observe(myFish, myName).subscribe(console.log)
+    // wake up fish of kind ForgetfulChatFish with name myName and log its published states
+    pond.observe(ForgetfulChatFish, myName).subscribe(console.log)
     // send a message every 5sec to generate a new event
-    setInterval(() => pond.feed(myFish, myName)('ping').subscribe(), 5000)
+    setInterval(() => pond.feed(ForgetfulChatFish, myName)('ping').subscribe(), 5000)
 })()

@@ -11,7 +11,7 @@
     "build": "tsc",
     "start": "ts-node index",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:image": "docker build -t sample-docker-app ."
+    "build:image": "npm run build && docker build -t sample-docker-app ."
   },
   "author": "",
   "license": "ISC",
