@@ -1,5 +1,4 @@
 import { Pond, Semantics, OnStateChange, Subscription, FishTypeImpl } from '@actyx/pond'
-import { mkMultiplexer } from '@actyx/pond/lib/eventstore/utils'
 
 // Each fish keeps some local state it remembers from all the events it has seen
 type State = { time: string, name: string, msg: string, } | undefined
@@ -31,8 +30,7 @@ const ForgetfulChatFish: FishTypeImpl<State, string, string, State> = FishTypeIm
 (global as any).WebSocket = require('ws');
 (async () => {
     // get started with a Pond
-    const ws = mkMultiplexer({ url: 'ws://10.1.58.20:4243/store_api' })
-    const pond = await Pond.of(ws).catch(ex => {
+    const pond = await Pond.default().catch(ex => {
         console.log('cannot start Pond, is ActyxOS running in development mode on this computer?', ex)
         process.exit(1)
     })
