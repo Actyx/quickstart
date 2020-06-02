@@ -16,13 +16,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actyx/pond": "^1.0.1",
+    "@actyx/pond": "^1.0.3",
     "fp-ts": "^1.19.4",
     "io-ts": "^1.10.1",
     "io-ts-types": "^0.4.1",
     "monocle-ts": "^2.1.0",
-    "rxjs": "^5.5.12",
-    "ws": "^7.2.3"
+    "rxjs": "^5.5.12"
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
