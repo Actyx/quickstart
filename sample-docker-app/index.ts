@@ -27,17 +27,17 @@ const ForgetfulChatFish: FishTypeImpl<State, string, string, State> = FishTypeIm
     onCommand: (_state, msg) => [msg],
 });
 
-(global as any).WebSocket = require('ws');
-(async () => {
-    // get started with a Pond
-    const pond = await Pond.default().catch(ex => {
+// get started with a Pond
+Pond.default()
+    .then(pond => {
+        // figure out the name of the fish we want to wake up
+        const myName = process.argv[2] || pond.info().sourceId
+        // wake up fish of kind ForgetfulChatFish with name myName and log its published states
+        pond.observe(ForgetfulChatFish, myName).subscribe(console.log)
+        // send a message every 5sec to generate a new event
+        setInterval(() => pond.feed(ForgetfulChatFish, myName)('ping').subscribe(), 5000)
+    })
+    .catch(ex => {
         console.log('cannot start Pond, is ActyxOS running in development mode on this computer?', ex)
         process.exit(1)
     })
-    // figure out the name of the fish we want to wake up
-    const myName = process.argv[2] || pond.info().sourceId
-    // wake up fish of kind ForgetfulChatFish with name myName and log its published states
-    pond.observe(ForgetfulChatFish, myName).subscribe(console.log)
-    // send a message every 5sec to generate a new event
-    setInterval(() => pond.feed(ForgetfulChatFish, myName)('ping').subscribe(), 5000)
-})()
