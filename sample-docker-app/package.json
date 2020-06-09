@@ -11,7 +11,8 @@
     "build": "tsc",
     "start": "ts-node index",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:image": "npm run build && docker build -t sample-docker-app ."
+    "build:image": "npm run build && docker build -t sample-docker-app .",
+    "build:image-aarch64": "npm run build && docker run --privileged -e IMAGE_TAG=\"sample-docker-app:arm\" -e PLATFORM=\"linux/arm64\" --rm -v $(pwd):/data actyx/windows-cross-builder && docker load -i sample-docker-app:arm.tar.gz"
   },
   "author": "",
   "license": "ISC",
