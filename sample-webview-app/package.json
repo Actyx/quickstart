@@ -15,12 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actyx/pond": "^1.0",
-    "fp-ts": "^1.19.4",
-    "io-ts": "^1.10.1",
-    "io-ts-types": "^0.4.1",
-    "monocle-ts": "^2.1.0",
-    "rxjs": "^5.5.12"
+    "@actyx/pond": "https://axartifacts.blob.core.windows.net/artifacts/1c15152b878af48e718cc6344246eb228e1f0211/actyx-pond-2.0.0-rc3.tgz"
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
