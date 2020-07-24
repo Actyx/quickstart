@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actyx/pond": "https://axartifacts.blob.core.windows.net/artifacts/1c15152b878af48e718cc6344246eb228e1f0211/actyx-pond-2.0.0-rc3.tgz"
+    "@actyx/pond": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
