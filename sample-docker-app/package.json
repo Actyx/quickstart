@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actyx/pond": "^2.0.0"
+    "@actyx/pond": "^2.0.1"
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
