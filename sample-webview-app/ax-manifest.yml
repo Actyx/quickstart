@@ -6,5 +6,5 @@ displayName: Sample Webview App
 description: "A sample webview app"
 icon: ./assets/icon.png
 dist: ./dist/
-main: index.html
+main: ./dist/index.html
 settingsSchema: ./settings.schema.json
