@@ -1,10 +1,10 @@
-import { Pond, FishId, noEvents, Metadata } from '@actyx/pond'
+import { allEvents, FishId, Metadata, Pond } from '@actyx/pond'
 
 const helloWorldFish = {
   fishId: FishId.of('ax.example.HelloWorld', 'getting-started', 0),
   initialState: 'Hello world!',
-  onEvent: (s: string, _event: never, _metadata: Metadata) => s,
-  where: noEvents,
+  onEvent: (_oldState: any, event: any, _metadata: Metadata) => event,
+  where: allEvents,
 }
 
 const main = async () => {
