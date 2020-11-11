@@ -6,4 +6,5 @@ displayName: Sample Docker App
 description: "A sample docker app"
 dockerCompose: 
   x86_64: ./docker-compose.yml
+  aarch64: ./docker-compose.arm64v8.yml
 settingsSchema: ./settings.schema.json

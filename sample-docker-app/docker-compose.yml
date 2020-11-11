@@ -1,4 +1,4 @@
 version: '2.0'
 services:
   app:
-    image: sample-docker-app
+    image: sample-docker-app-x86_64
