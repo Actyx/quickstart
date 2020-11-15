@@ -1,4 +1,4 @@
-FROM arm64v8/node:12.19.0-buster
+FROM node:12.19.0
 WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -yq \
@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -yq \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
-RUN npm install
 COPY . .
+RUN npm install
 
 CMD ["node", "index.js"]
