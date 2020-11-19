@@ -1,9 +1,12 @@
 manifestVersion: "1.0"
 type: docker
-id: com.actyx.sample-docker-app-arm64
+id: com.actyx.sample-docker-app
 version: 1.0.0
-displayName: Sample ARM64 Docker App
+displayName: Sample Docker App
 description: "A sample docker app"
 dockerCompose: 
+  # This could also be added to the ax-manifest.yml.
+  # It is kept separate to allow the quickstart to function without
+  # requiring the experimental `docker buildx` feature.
   aarch64: ./docker-compose.arm64v8.yml
 settingsSchema: ./settings.schema.json

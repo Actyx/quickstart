@@ -5,8 +5,7 @@ RUN apt-get update && apt-get install -yq \
   build-essential && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY package*.json ./
-COPY . .
+COPY package*.json *.js ./
 RUN npm install
 
 CMD ["node", "index.js"]

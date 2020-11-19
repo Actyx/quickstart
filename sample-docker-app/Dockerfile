@@ -1,8 +1,7 @@
 FROM node:10-alpine
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY package*.json *.js ./
 RUN npm install
-COPY . .
 
 CMD ["node", "index.js"]
