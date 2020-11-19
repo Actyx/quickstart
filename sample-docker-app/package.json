@@ -11,7 +11,8 @@
     "build": "tsc",
     "start": "ts-node index",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:image": "npm run build && docker build -t sample-docker-app ."
+    "build:image": "npm run build && docker build -t sample-docker-app .",
+    "build:image:arm64": "docker buildx build --platform linux/arm64 -f Dockerfile.arm64v8 -t sample-docker-app-arm64v8 --load ."
   },
   "author": "",
   "license": "ISC",
