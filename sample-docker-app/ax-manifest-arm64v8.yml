@@ -1,9 +1,0 @@
-manifestVersion: "1.0"
-type: docker
-id: com.actyx.sample-docker-app-arm64
-version: 1.0.0
-displayName: Sample ARM64 Docker App
-description: "A sample docker app"
-dockerCompose: 
-  aarch64: ./docker-compose.arm64v8.yml
-settingsSchema: ./settings.schema.json
