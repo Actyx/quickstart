@@ -8,11 +8,11 @@
   },
   "main": "index.ts",
   "scripts": {
-    "build": "tsc",
     "start": "ts-node index",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:image": "npm run build && docker build -t sample-docker-app .",
-    "build:image:aarch64": "docker buildx build --platform linux/arm64 -f Dockerfile -t sample-docker-app-aarch64 --load ."
+    "build": "tsc",
+    "build:image:x86_64": "npm run build && docker build -f Dockerfile -t sample-docker-app-x86_64 .",
+    "build:image:aarch64": "npm run build && docker buildx build --platform linux/arm64 -f Dockerfile -t sample-docker-app-aarch64 --load ."
   },
   "author": "",
   "license": "ISC",

@@ -5,6 +5,5 @@ version: 1.0.0
 displayName: Sample Docker App
 description: "A sample docker app"
 dockerCompose:
-  x86_64: ./docker-compose.x86_64.yml
   aarch64: ./docker-compose.aarch64.yml
 settingsSchema: ./settings.schema.json
