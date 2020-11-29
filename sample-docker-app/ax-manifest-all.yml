@@ -9,6 +9,9 @@ dockerCompose:
   # It is kept separate to allow the quickstart to function without
   # requiring the experimental `docker buildx` feature.
   aarch64: ./docker-compose.aarch64.yml
+  # the below are not yet supported by Actyx CLI
+  #armv7: ./docker-compose.armv7.yml
+  #arm: ./docker-compose.arm.yml
   # This is in here so that we have one manifest to build all packages.
   x86_64: ./docker-compose.yml
 settingsSchema: ./settings.schema.json
