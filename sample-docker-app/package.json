@@ -12,7 +12,9 @@
     "start": "ts-node index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:image": "npm run build && docker build -t sample-docker-app .",
-    "build:image:aarch64": "docker buildx build --platform linux/arm64 -f Dockerfile -t sample-docker-app-aarch64 --load ."
+    "build:image:aarch64": "docker buildx build --platform linux/arm64 -f Dockerfile -t sample-docker-app-aarch64 --load .",
+    "build:image:armv7": "docker buildx build --platform linux/arm/v7 -f Dockerfile -t sample-docker-app-armv7 --load .",
+    "build:image:arm": "docker buildx build --platform linux/arm/v6 -f Dockerfile -t sample-docker-app-armv6 --load ."
   },
   "author": "",
   "license": "ISC",
