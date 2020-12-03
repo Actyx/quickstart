@@ -7,4 +7,3 @@ description: "A sample webview app"
 icon: ./assets/icon.png
 dist: ./dist/
 main: ./dist/index.html
-settingsSchema: ./settings.schema.json
