@@ -1,25 +1,24 @@
 {
-  "name": "sample-webview-app",
+  "name": "actyx-quickstart",
   "version": "1.0.0",
-  "description": "A sample ActyxOS webview app that sends pings and displays them",
+  "description": "Actyx Quickstart Starter",
   "repository": {
     "type": "git",
     "url": "https://github.com/Actyx/quickstart"
   },
   "main": "index.ts",
   "scripts": {
-    "build": "tsc && parcel build index.html --public-url .",
-    "start": "tsc && parcel index.html",
+    "build": "tsc",
+    "start": "ts-node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actyx/pond": "^2.0.1"
+    "@actyx/pond": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
-    "parcel-bundler": "^1.12.4",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   }
