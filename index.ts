@@ -13,9 +13,9 @@ const main = async () => {
 
   var counter = 1
   setInterval(() => {
-    pond.emit(Tag('Some tag'),`Hello ${counter}!`)
+    pond.emit(Tag('Some tag'), `Hello ${counter}!`)
     counter += 1
-  }, 2500)
+  }, 3500)
 }
 
 main()
